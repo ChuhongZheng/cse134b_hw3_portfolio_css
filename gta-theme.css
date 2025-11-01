@@ -109,11 +109,11 @@ body, p, li, label, input, textarea {
 a {
   color: var(--gta-gold);
   text-decoration: none;
-}
-
-a:hover {
-  color: var(--gta-white);
-  text-decoration: underline;
+  
+  &:hover {
+    color: var(--gta-white);
+    text-decoration: underline;
+  }
 }
 
 /* 按钮样式 */
@@ -123,6 +123,12 @@ a:hover {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
+  
+  /* 按钮悬停效果 */
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
 }
 
 /* 按钮样式 - 漫画主题 */
@@ -135,13 +141,11 @@ a:hover {
   background: var(--comic-light);
   color: var(--gta-black);
   padding: 12px 24px;
-}
-
-.home-theme .btn:hover,
-.home-theme button:hover,
-.home-theme input[type="submit"]:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--gta-white), 3px 3px 0 var(--gta-black);
+  
+  &:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--gta-white), 3px 3px 0 var(--gta-black);
+  }
 }
 
 /* 按钮样式 - 日落主题 */
@@ -158,16 +162,11 @@ a:hover {
   box-shadow: 0 4px 15px rgba(255, 94, 98, 0.4);
   color: var(--gta-white);
   padding: 12px 24px;
-}
-
-.about-theme .btn:hover,
-.about-theme button:hover,
-.about-theme input[type="submit"]:hover,
-.projects-theme .btn:hover,
-.projects-theme button:hover,
-.projects-theme input[type="submit"]:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 94, 98, 0.6);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 94, 98, 0.6);
+  }
 }
 
 /* 按钮样式 - 霓虹主题 */
@@ -187,19 +186,14 @@ a:hover {
   background: rgba(0, 0, 0, 0.3);
   color: var(--gta-white);
   padding: 12px 24px;
-}
-
-.experiments-theme .btn:hover,
-.experiments-theme button:hover,
-.experiments-theme input[type="submit"]:hover,
-.contact-theme .btn:hover,
-.contact-theme button:hover,
-.contact-theme input[type="submit"]:hover {
-  box-shadow:
-    0 0 10px var(--neon-cyan),
-    0 0 20px var(--neon-cyan),
-    0 0 30px var(--neon-pink),
-    inset 0 0 15px var(--neon-cyan);
+  
+  &:hover {
+    box-shadow:
+      0 0 10px var(--neon-cyan),
+      0 0 20px var(--neon-cyan),
+      0 0 30px var(--neon-pink),
+      inset 0 0 15px var(--neon-cyan);
+  }
 }
 
 /* 霓虹动画效果 */
@@ -229,6 +223,12 @@ a:hover {
 .card, article, .interest-card {
   padding: 1rem;
   margin: 1rem 0;
+  
+  /* 卡片悬停效果 */
+  &:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+  }
 }
 
 /* 卡片样式 - 漫画主题 */
@@ -239,15 +239,12 @@ a:hover {
   border-radius: 6px;
   box-shadow: 3px 3px 0 var(--gta-white), 6px 6px 0 var(--gta-black);
   background: rgba(255, 255, 255, 0.7);
-}
-
-/* 卡片内的标题样式 - 改善可读性 */
-.home-theme .card h3,
-.home-theme article h3,
-.home-theme .interest-card h2 {
-  -webkit-text-stroke: 1px var(--gta-white);
-  text-shadow: 1px 1px 0 var(--gta-black);
-  color: var(--comic-darkgreen);
+  
+  h3 {
+    -webkit-text-stroke: 1px var(--gta-white);
+    text-shadow: 1px 1px 0 var(--gta-black);
+    color: var(--comic-darkgreen);
+  }
 }
 
 /* 卡片样式 - 日落主题 */
@@ -284,13 +281,36 @@ a:hover {
 }
 
 /* 导航栏样式 */
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 8px;
+nav {
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 8px;
+  }
+  
+  li {
+    margin: 0 1rem;
+  }
+  
+  a {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--gta-white);
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px var(--gta-black);
+    text-shadow: 1px 1px 0 var(--gta-black);
+    transition: color 0.3s;
+    
+    &:hover {
+      color: var(--gta-gold);
+      text-decoration: none;
+      transform: scale(1.1);
+      transition: all 0.2s ease;
+    }
+  }
 }
 
 /* 导航栏样式 - 漫画主题 */
@@ -298,13 +318,12 @@ nav ul {
   border: 4px solid var(--gta-black);
   box-shadow: 3px 3px 0 var(--gta-white), 6px 6px 0 var(--gta-black);
   background: rgba(255, 255, 255, 0.7);
-}
-
-/* 导航栏内的链接样式 - 改善可读性 */
-.home-theme nav a {
-  -webkit-text-stroke: 1px var(--gta-white);
-  text-shadow: 1px 1px 0 var(--gta-black);
-  color: var(--comic-darkgreen);
+  
+  a {
+    -webkit-text-stroke: 1px var(--gta-white);
+    text-shadow: 1px 1px 0 var(--gta-black);
+    color: var(--comic-darkgreen);
+  }
 }
 
 /* 导航栏样式 - 日落主题 */
@@ -330,25 +349,6 @@ nav ul {
     5px 5px 0 rgba(0, 0, 0, 0.3),
     10px 10px 0 rgba(0, 0, 0, 0.15);
   background: rgba(0, 0, 0, 0.3);
-}
-
-nav li {
-  margin: 0 1rem;
-}
-
-nav a {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  color: var(--gta-white);
-  text-transform: uppercase;
-  -webkit-text-stroke: 1px var(--gta-black);
-  text-shadow: 1px 1px 0 var(--gta-black);
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: var(--gta-gold);
-  text-decoration: none;
 }
 
 /* 页脚样式 */
@@ -391,6 +391,11 @@ footer {
 form {
   padding: 1rem;
   border-radius: 12px;
+  
+  &:hover {
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+  }
 }
 
 /* 表单样式 - 漫画主题 */
@@ -453,6 +458,17 @@ fieldset {
 input, textarea {
   border-radius: 4px;
   padding: 0.5rem;
+  
+  /* 表单元素焦点效果 */
+  &:focus {
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+    box-shadow: 0 0 8px var(--gta-gold);
+  }
+  
+  &::placeholder {
+    color: #aaa;
+  }
 }
 
 /* 表单输入样式 - 漫画主题 */
@@ -461,6 +477,10 @@ input, textarea {
   border: 2px solid var(--gta-black);
   background: var(--gta-white);
   color: var(--comic-darkblue);
+  
+  &::placeholder {
+    color: #999;
+  }
 }
 
 /* 表单输入样式 - 日落主题 */
@@ -484,51 +504,11 @@ input, textarea {
   color: var(--gta-white);
 }
 
-input::placeholder, textarea::placeholder {
-  color: #aaa;
-}
-
-.home-theme input::placeholder,
-.home-theme textarea::placeholder {
-  color: #999;
-}
-
-/* CSS 动画、过渡和变换样式 */
-/* 按钮悬停效果 */
-.btn:hover,
-button:hover,
-input[type="submit"]:hover {
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-}
-
-/* 卡片悬停效果 */
-.card:hover,
-article:hover,
-.interest-card:hover {
-  transform: translateY(-5px);
-  transition: all 0.3s ease;
-}
-
-/* 导航链接悬停效果 */
-nav a:hover {
-  transform: scale(1.1);
-  transition: all 0.2s ease;
-}
-
-/* 表单元素焦点效果 */
-input:focus,
-textarea:focus {
-  transform: scale(1.02);
-  transition: all 0.2s ease;
-  box-shadow: 0 0 8px var(--gta-gold);
-}
-
 /* 进度条动画 */
 progress {
   transition: all 0.3s ease;
-}
-
-progress:hover {
-  transform: scale(1.02);
+  
+  &:hover {
+    transform: scale(1.02);
+  }
 }
