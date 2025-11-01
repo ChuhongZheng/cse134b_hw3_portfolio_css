@@ -52,70 +52,187 @@
             box-shadow: 5px 5px 0 #fff, 10px 10px 0 #000;
             object-fit: cover;
         }
+        
+        /* GTA启动动画样式 */
+        #startup-animation {
+            display: none;
+        }
+        
+        .startup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            animation: startup-fadeout 0.5s forwards 5s;
+        }
+        
+        .startup-logo {
+            font-family: 'Pricedown', 'Impact', sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: logo-appear 2s forwards 1s;
+        }
+        
+        .startup-title-line1 {
+            font-size: 4rem;
+            color: #eee;
+            -webkit-text-stroke: 1px #000;
+            text-shadow: 2px 2px 0 #000;
+            transform: scale(0.5);
+            animation: text-pop-in 1s forwards 2s;
+        }
+        
+        .startup-title-line2 {
+            font-size: 4rem;
+            color: #2a4d2d;
+            -webkit-text-stroke: 1px #fff;
+            text-shadow: 2px 2px 0 #000;
+            transform: scale(0.5);
+            margin-left: 1rem;
+            animation: text-pop-in 1s forwards 3s;
+        }
+        
+        .loading-bar {
+            width: 300px;
+            height: 20px;
+            background-color: #333;
+            border: 2px solid #fff;
+            border-radius: 4px;
+            margin-top: 2rem;
+            overflow: hidden;
+            opacity: 0;
+            animation: loading-appear 0.5s forwards 4s;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff9966, #ff5e62);
+            animation: loading-progress 1s forwards 4s;
+        }
+        
+        .main-content {
+            animation: content-appear 0.5s forwards 5.5s;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes logo-appear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes text-pop-in {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes loading-appear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes loading-progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes startup-fadeout {
+            from { opacity: 1; visibility: visible; }
+            to { opacity: 0; visibility: hidden; }
+        }
+        
+        @keyframes content-appear {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body class="home-theme">
-    <header>
-        <h1>My Portfolio Website</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="experiments.html">Experiments</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section>
-            <h2>Welcome to My Portfolio</h2>
-            <p>This is my <em>personal portfolio website</em> showcasing my projects and skills.</p>
-            
-            <article class="card">
-                <h3>Featured Project</h3>
-                <p>Check out my latest project that demonstrates my skills and expertise.</p>
-            </article>
-        </section>
-        
-        <section>
-            <h2>About Me</h2>
-            <img src="gta_me.png" class="profile-image" alt="GTA style me">
-            <p>I'm a student studying Computer Science at <b>UC San Diego</b>.</p>
-            <p>In my free time, I enjoy coding, reading and learning new technologies.</p>
-            <p>I have knowledge in various programming languages including <i>Python</i>, <i>JavaScript</i>, and <i>Java</i>.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
-        <div class="social-links">
-            <span>Follow me on:</span>
-            <a href="https://x.com/zhengchuhong134">Twitter</a>
-            <a href="https://www.linkedin.com/in/zheng647/?locale=en_US">LinkedIn</a>
-            <a href="https://github.com/ChuhongZheng">GitHub</a>
+    <!-- GTA启动动画 -->
+    <input type="checkbox" id="startup-animation">
+    <div class="startup-overlay">
+        <div class="startup-logo">
+            <div class="startup-title-line1">My Portfolio</div>
+            <div class="startup-title-line2">Website</div>
         </div>
-    </footer>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
 
-    <!-- 自定义元素示例 -->
-    <hello-world-console></hello-world-console>
+    <div class="main-content">
+        <header>
+            <h1>My Portfolio Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <!-- MathML 公式 (Extra Credit) -->
-    <p>Einstein's famous equation: 
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <mi>E</mi>
-            <mo>=</mo>
-            <mi>m</mi>
-            <msup>
-                <mi>c</mi>
-                <mn>2</mn>
-            </msup>
-        </math>
-    </p>
+        <main>
+            <section>
+                <h2>Welcome to My Portfolio</h2>
+                <p>This is my <em>personal portfolio website</em> showcasing my projects and skills.</p>
+                
+                <article class="card">
+                    <h3>Featured Project</h3>
+                    <p>Check out my latest project that demonstrates my skills and expertise.</p>
+                </article>
+            </section>
+            
+            <section>
+                <h2>About Me</h2>
+                <img src="gta_me.png" class="profile-image" alt="GTA style me">
+                <p>I'm a student studying Computer Science at <b>UC San Diego</b>.</p>
+                <p>In my free time, I enjoy coding, reading and learning new technologies.</p>
+                <p>I have knowledge in various programming languages including <i>Python</i>, <i>JavaScript</i>, and <i>Java</i>.</p>
+            </section>
+        </main>
 
-    <noscript>
-        <p><strong>This site works best with JavaScript enabled.</strong></p>
-    </noscript>
+        <footer>
+            <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+            <div class="social-links">
+                <span>Follow me on:</span>
+                <a href="https://x.com/zhengchuhong134">Twitter</a>
+                <a href="https://www.linkedin.com/in/zheng647/?locale=en_US">LinkedIn</a>
+                <a href="https://github.com/ChuhongZheng">GitHub</a>
+            </div>
+        </footer>
+
+        <!-- 自定义元素示例 -->
+        <hello-world-console></hello-world-console>
+
+        <!-- MathML 公式 (Extra Credit) -->
+        <p>Einstein's famous equation: 
+            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>E</mi>
+                <mo>=</mo>
+                <mi>m</mi>
+                <msup>
+                    <mi>c</mi>
+                    <mn>2</mn>
+                </msup>
+            </math>
+        </p>
+
+        <noscript>
+            <p><strong>This site works best with JavaScript enabled.</strong></p>
+        </noscript>
+    </div>
 </body>
 </html>
