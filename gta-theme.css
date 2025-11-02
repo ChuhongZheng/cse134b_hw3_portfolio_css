@@ -494,37 +494,21 @@ input, textarea {
   }
 }
 
-/* 表单输入样式 - 漫画主题 */
-.home-theme input,
-.home-theme textarea {
-  border: 2px solid var(--gta-black);
-  background: var(--gta-white);
-  color: var(--comic-darkblue);
+/* GTA 5 游戏介绍样式 */
+.gta-introduction {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--gta-gold);
   
-  &::placeholder {
-    color: #999;
+  /* 隐藏滚动条 - 使用新特性 */
+  scrollbar-width: none; /* Firefox */
+  
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
-}
-
-/* 表单输入样式 - 日落主题 */
-.about-theme input,
-.about-theme textarea,
-.projects-theme input,
-.projects-theme textarea {
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.3);
-  color: var(--gta-white);
-}
-
-/* 表单输入样式 - 霓虹主题 */
-.experiments-theme input,
-.experiments-theme textarea,
-.contact-theme input,
-.contact-theme textarea {
-  border: 1px solid var(--neon-cyan);
-  box-shadow: 0 0 5px var(--neon-cyan);
-  background: rgba(0, 0, 0, 0.3);
-  color: var(--gta-white);
 }
 
 /* 进度条动画 */
