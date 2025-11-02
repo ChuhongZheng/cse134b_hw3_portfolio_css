@@ -83,11 +83,89 @@
             border-radius: 8px;
             border: none;
         }
+        
+        /* 汉堡菜单样式 */
+        .menu-toggle {
+            display: none;
+        }
+        
+        .menu-toggle-label {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 100;
+        }
+        
+        .menu-toggle-label span {
+            width: 25px;
+            height: 3px;
+            background: var(--gta-white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* 响应式设计 - 手机设备 */
+        @media screen and (max-width: 768px) {
+            .menu-toggle-label {
+                display: flex;
+            }
+            
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100%;
+                padding: 4rem 2rem;
+                z-index: 99;
+                transition: left 0.3s ease;
+            }
+            
+            .menu-toggle:checked + .menu-toggle-label + nav ul {
+                left: 0;
+            }
+            
+            .menu-toggle:checked + .menu-toggle-label span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .menu-toggle:checked + .menu-toggle-label span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle:checked + .menu-toggle-label span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            nav li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+            
+            nav a {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body class="about-theme">
     <header>
         <h1>About Me</h1>
+        <!-- 汉堡菜单按钮 -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-toggle-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -229,5 +307,12 @@
     <noscript>
         <p>This site works best with JavaScript enabled.</p>
     </noscript>
+    
+    <script>
+        // 汉堡菜单切换功能
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
 </body>
 </html>

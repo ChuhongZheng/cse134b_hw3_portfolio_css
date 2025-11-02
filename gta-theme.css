@@ -511,6 +511,165 @@ input, textarea {
   }
 }
 
+/* 响应式设计 - 手机设备 */
+@media screen and (max-width: 768px) {
+  /* 调整主容器内边距 */
+  main {
+    padding: 0.5rem;
+  }
+  
+  /* 标题自适应调整，使用动态字体大小 */
+  h1, .home-theme h1, .about-theme h1, .projects-theme h1, .experiments-theme h1, .contact-theme h1 {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  
+  h2, .home-theme h2, .about-theme h2, .projects-theme h2, .experiments-theme h2, .contact-theme h2 {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* 使用动态视口单位调整兴趣卡片在小屏幕上的尺寸 */
+  interest-card {
+    width: clamp(280px, 90dvw, 100%);
+    display: block;
+    margin: 12px auto;
+  }
+  
+  /* 调整段落字体大小 */
+  p {
+    font-size: 1.1rem;
+  }
+  
+  /* 调整卡片内边距 */
+  .card, article, .interest-card {
+    padding: 0.8rem;
+  }
+  
+  /* 调整按钮内边距 */
+  .btn, button, input[type="submit"] {
+    padding: 10px 20px;
+  }
+  
+  /* 调整iframe大小，使用动态视口单位 */
+  iframe {
+    width: 100dvw;
+    height: clamp(200px, 50dvh, 400px);
+    margin-left: calc(-0.5rem);
+  }
+  
+  /* 调整GTA介绍区域高度，使用动态视口单位 */
+  .gta-introduction {
+    max-height: 30dvh;
+  }
+  
+  /* 调整页脚 */
+  footer {
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+  
+  footer .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* 汉堡菜单样式 */
+  .menu-toggle-label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+  }
+  
+  .menu-toggle-label span {
+    width: 25px;
+    height: 3px;
+    background: var(--gta-white);
+    margin: 3px 0;
+    transition: 0.3s;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100%;
+    padding: 4rem 2rem;
+    z-index: 99;
+    transition: left 0.3s ease;
+  }
+  
+  .menu-toggle:checked + .menu-toggle-label + nav ul {
+    left: 0;
+  }
+  
+  .menu-toggle:checked + .menu-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle:checked + .menu-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle:checked + .menu-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  nav li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  nav a {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+}
+
+/* 响应式设计 - 平板设备 */
+@media screen and (max-width: 1024px) {
+  /* 导航栏调整 */
+  nav ul {
+    flex-wrap: wrap;
+  }
+  
+  /* 兴趣卡片在平板上的调整 */
+  interest-card {
+    width: calc(50% - 2rem);
+    display: inline-block;
+  }
+  
+  /* 调整标题字体大小 */
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+/* 确保在大屏幕上保持原有样式 */
+@media screen and (min-width: 1025px) {
+  /* 这里可以添加PC端的特定样式，如果需要的话 */
+  /* 当前保持现有样式不变 */
+}
+
 /* 进度条动画 */
 progress {
   transition: all 0.3s ease;
